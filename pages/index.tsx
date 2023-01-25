@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsername, setLoading, setRepos, setError, clearRepos } from '../actions';
-import { getRepositories } from '../api';
+import { setUsername, setLoading, setRepos, setError, clearRepos } from '@/actions';
+import { getRepositories } from '@/api';
 import { AppState } from '@/reducers/repositories';
 import { Repository } from '@/interfaces/repository';
 
@@ -36,6 +36,8 @@ const Repositories = () => {
     setUsername('');
   };
 
+  const setDisabled = username === '' || isLoading;
+
   return (
       <div className="page-content page-container p-3" id="page-content">
           <div className="padding">
@@ -49,7 +51,7 @@ const Repositories = () => {
                               </div>
                               <form onSubmit={handleSubmit} className="add-items d-flex my-3">
                                 <input type="text" className="form-control todo-list-input" placeholder="Enter a GitHub username" value={username} onChange={e => setUsernameState(e.target.value)} />
-                                <button type="submit" className="add btn btn-primary font-weight-bold todo-list-add-btn">Search</button>
+                                <button type="submit" disabled={setDisabled} className="add btn btn-primary font-weight-bold todo-list-add-btn">Search</button>
                               </form>
                               <div className="list-wrapper">
                                   <ul className="d-flex flex-column-reverse todo-list">
