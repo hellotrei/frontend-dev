@@ -16,7 +16,7 @@
 <ul>
   <li><b>React 18.2.0</b></li>
   <li><b>Next 13.1.5</b></li>
-  <li><b>Vercel</b></li>
+  <li><b></b></li>
 </ul>
 
 <h4>Libraries:</h4>
@@ -32,6 +32,9 @@
 </ul>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2> :clipboard: Execution Instruction</h2>
+<p>The order of execution of the program files is as follows:</p>
 
 npm run dev
 # or
