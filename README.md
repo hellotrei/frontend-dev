@@ -1,38 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center"> 
+  <img src="/public/uh47zm9z883aai4lyk1d-3538281038.png" alt="Email Logo.png" width="80px" height="80px">
+</p>
+<h1 align="center"> Github Users </h1>
+<h3 align="center"> Task For Frontend Developer </h3>
+<h5 align="center"> Project Assignment- <a href="https://mytens-frontend-dev.vercel.app/">MyTEnS Vercel APP</a> (Jan 2023) </h5>
 
-## Getting Started
+<p align="center"> 
+<img src="/public/78pduh.gif" alt="Animated gif" height="382px">
+</p>
 
-First, run the development server:
+<h2> :floppy_disk: Project Files Description</h2>
 
-```bash
+<p>This Project includes 3 executable directories as follows:</p>
+<h4>Technologies:</h4>
+<ul>
+  <li><b>React 18.2.0</b></li>
+  <li><b>Next 13.1.5</b></li>
+</ul>
+
+<h4>Libraries:</h4>
+<ul>
+  <li><b>Axios 1.2.4</b></li>
+  <li><b>Redux 4.2.0</b></li>
+  <li><b>Bootstrap 5.2.3</b></li>
+</ul>
+
+<h4>Source Extentions:</h4>
+<ul>
+ <li><b>Fully Typescript</b></li>
+</ul>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<!-- CREDITS -->
+<h2 id="credits"> :scroll: Credits</h2>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Treido A Ristivan
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hellotrei)
