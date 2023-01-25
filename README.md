@@ -1,12 +1,12 @@
 <p align="center"> 
-  <img src="/public/uh47zm9z883aai4lyk1d-3538281038.png" alt="Email Logo.png" width="80px" height="80px">
+  <img src="/public/vercelnext.png" alt="Logo.png" width="140px" height="100px">
 </p>
 <h1 align="center"> Github Users </h1>
 <h3 align="center"> Task For Frontend Developer </h3>
-<h5 align="center"> Project Assignment- <a href="https://mytens-frontend-dev.vercel.app/">MyTEnS Vercel APP</a> (Jan 2023) </h5>
+<h5 align="center"> Project Result Link - <a href="https://mytens-frontend-dev.vercel.app/">MyTEnS Vercel APP</a> (Jan 2023) </h5>
 
 <p align="center"> 
-<img src="/public/78pduh.gif" alt="Animated gif" height="382px">
+<img src="/" alt="Animated gif" height="382px">
 </p>
 
 <h2> :floppy_disk: Project Files Description</h2>
