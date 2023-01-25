@@ -1,4 +1,4 @@
-import { SET_REPOS, SET_USERNAME, SET_LOADING, SET_ERROR, CLEAR_REPOS, Action } from '@/actions/types';
+import { SET_REPOS, SET_USERNAME, SET_LOADING, SET_ERROR, CLEAR_REPOS, Action } from '@/src/store/actions/types';
 
 export interface AppState {
     repositories: any,
