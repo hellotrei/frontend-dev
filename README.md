@@ -6,7 +6,7 @@
 <h5 align="center"> Project Result Link - <a href="https://mytens-frontend-dev.vercel.app/">MyTEnS Vercel APP</a> (Jan 2023) </h5>
 
 <p align="center"> 
-<img src="/" alt="Animated gif" height="382px">
+<img src="/public/result.gif" alt="Animated gif" height="340px">
 </p>
 
 <h2> :floppy_disk: Project Files Description</h2>
@@ -16,6 +16,7 @@
 <ul>
   <li><b>React 18.2.0</b></li>
   <li><b>Next 13.1.5</b></li>
+  <li><b>Vercel</b></li>
 </ul>
 
 <h4>Libraries:</h4>
