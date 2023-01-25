@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from '@/reducers';
 import Repositories from './index';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
   return (
