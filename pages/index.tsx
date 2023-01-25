@@ -1,76 +1,64 @@
-import React from 'react';
-import axios from 'axios';
-import { NextPage } from 'next';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUsername, setLoading, setRepos, setError } from '../actions';
+import { getRepositories } from '../api';
+import { AppState } from '../reducers/repositories';
+import { Repository } from '@/interfaces/repository';
 
-interface Repository {
-  id: number;
-  name: string;
-  html_url: string;
-}
+const Repositories = () => {
+  const [username, setUsernameState] = useState('');
+  const dispatch = useDispatch();
+  const repositories = useSelector((state: AppState) => state.repositories.repositories);
+  const error = useSelector((state: AppState) => state.error);
 
-interface Props {
-  repositories: Repository[];
-}
-
-const Home: NextPage<Props> = ({ repositories }) => {
-  const [username, setUsername] = React.useState('');
-  const [repos, setRepositories] = React.useState(repositories || []);
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState("");
+  if (error) {
+    return <div>{error}</div>;
+  }
 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
     try {
-        const res = await axios.get(`https://api.github.com/users/${username}/repos`);
-        if(res.status === 404){
-            setError("User not found");
-        }else{
-            setRepositories(res.data);
-        }
-    } catch (err) {
-        setError("An error occurred while trying to fetch the data.");
+      dispatch(setUsername(username));
+      dispatch(setLoading(true));
+      const repos = await getRepositories(username);
+      dispatch(setRepos(repos));
+    } catch (error) {
+      if(error instanceof Error){
+        dispatch(setError(error.message));
+      }
+    } finally {
+      dispatch(setLoading(false));
     }
-    setLoading(false);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>
-          GitHub username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <button type="submit">Submit</button>
+        <input
+          type="text"
+          placeholder="Enter a GitHub username"
+          value={username}
+          onChange={e => setUsernameState(e.target.value)}
+        />
+        <button type="submit">Search</button>
       </form>
-      {loading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-      <ul>
-      {repos.map((repo) => (
-          <li key={repo.id}>
-            <a href={repo.html_url}>{repo.name}</a>
-          </li>
-        ))}
-      </ul>
+      {/* Render the repositories or the error message */}
+      {repositories.length > 0 && (
+        <div>
+          <h3>Repositories from {username}</h3>
+          <ul>
+            {repositories.map((repo: Repository) => (
+              <li key={repo.id}>
+                <h4>{repo.name}</h4>
+                <p>{repo.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
 
-Home.getInitialProps = async ({ query }: any) => {
-  const { username = '' } = query;
-  try {
-    const res = await axios.get(`https://api.github.com/users/${username}/repos`);
-    return { repositories: res.data };
-  } catch (err) {
-    console.log(err)
-    return { repositories: [] };
-  }
-};
-
-export default Home;
+export default Repositories;
