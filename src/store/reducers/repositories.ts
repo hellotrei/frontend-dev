@@ -1,5 +1,4 @@
 import { SET_REPOS, SET_USERNAME, SET_LOADING, SET_ERROR, CLEAR_REPOS, Action } from '@/src/store/actions/types';
-
 export interface AppState {
     repositories: any,
     username: string,
@@ -12,7 +11,7 @@ const initialState: AppState = {
     username: '',
     isLoading: false,
     error: ''
-}
+};
 
 export default function repositories(state = initialState, action: Action) {
     switch (action.type) {

@@ -1,14 +1,31 @@
 {
-  "extends": ["airbnb"],
-  "plugins": [
-    "react",
-    "import",
-    "jsx-a11y",
-    "react-hooks"
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  },
+  "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "commonjs": true,
+      "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "next",
+    "plugin:@next/next/recommended"
   ],
+  "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+  },
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-    "react/prop-types": 0
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off"
   }
 }
