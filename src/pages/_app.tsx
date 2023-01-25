@@ -4,12 +4,12 @@ import store from '../store';
 import Repositories from './index';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const App = () => {
+function App() {
   return (
     <Provider store={store}>
       <Repositories />
     </Provider>
   );
-};
+}
 
 export default App;
