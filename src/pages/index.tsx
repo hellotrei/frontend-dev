@@ -3,19 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsername, setLoading, setRepos, setError, clearRepos } from '@/src/store/actions';
 import { getRepositories } from '../api';
 import { AppState } from '../store/reducers/repositories';
-import { Repository } from '../interfaces/repository';
+import { Repository, Props } from '../interfaces/repository';
 import { api } from '../api';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-
-interface Repo {
-  id: number,
-  name: string,
-  html_url: string
-}
-
-interface Props {
-  repos: Repo[]
-}
 
 export const getServerSideProps = async () => {
   const { data } = await api.get(`/users/hellotrei/repos`);
@@ -34,20 +24,20 @@ const Repositories = ({repos}: Props) => {
 
   useEffect(() => {
     dispatch(setRepos(repos));
-  }, []);
+  }, [dispatch, repos]);
 
   useEffect(() => {
     if (error === 'Request failed with status code 404') {
       setUserNotFound(true);
     }
-  }, [error]);
+  }, [error, setUserNotFound]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       dispatch(setLoading(true));
       dispatch(setUsername(username));
-      const repos = await getRepositories(username).then();
+      const repos = await getRepositories(username);
       dispatch(setRepos(repos));
       setUserNotFound(false);
     } catch (error) {
