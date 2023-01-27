@@ -4,13 +4,37 @@ import { setUsername, setLoading, setRepos, setError, clearRepos } from '@/src/s
 import { getRepositories } from '../api';
 import { AppState } from '../store/reducers/repositories';
 import { Repository } from '../interfaces/repository';
+import { api } from '../api';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-const Repositories = () => {
+interface Repo {
+  id: number,
+  name: string,
+  html_url: string
+}
+
+interface Props {
+  repos: Repo[]
+}
+
+export const getServerSideProps = async () => {
+  const { data } = await api.get(`/users/hellotrei/repos`);
+  return {
+    props: {
+      repos: data
+    }
+  }
+}
+
+const Repositories = ({repos}: Props) => {
   const dispatch = useDispatch();
   const [username, setUsernameState] = useState('');
   const [userNotFound, setUserNotFound] = useState(false);
   const { repositories, isLoading, error } = useSelector((state: AppState) => state.repositories);
+
+  useEffect(() => {
+    dispatch(setRepos(repos));
+  }, []);
 
   useEffect(() => {
     if (error === 'Request failed with status code 404') {
