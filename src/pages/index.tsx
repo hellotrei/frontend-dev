@@ -5,7 +5,6 @@ import { getRepositories } from '../api';
 import { AppState } from '../store/reducers/repositories';
 import { Repository, Props } from '../interfaces/repository';
 import { api } from '../api';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 export const getServerSideProps = async () => {
   const { data } = await api.get(`/users/hellotrei/repos`);
@@ -59,38 +58,34 @@ const Repositories = ({repos}: Props) => {
   const setDisabled = username === '' || isLoading;
 
   return (
-    <Container>
-      <Row>
-        <Col xs={12}>
-          <h1 className="text-center my-5">Github Repository Search</h1>
-        </Col>
-        <Col xs={12}>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <Label for="search">Search Github Repositories</Label>
-              <Input 
-                type="text"
-                name="search"
-                id="search"
-                placeholder="Enter repository name"
-                value={username}
-                onChange={e => setUsernameState(e.target.value)}
-              />
-            </FormGroup>
-            <Button color="primary" type="submit" disabled={setDisabled}>
-              {isLoading ? 'Searching...' : 'Search'}
-            </Button>
-          </Form>
-        </Col>
+    <div className='container'>
+      <div className='row'>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 hero-text">
+              <h2>Search for <span>Github</span> <br />Respositories</h2>
+              <h5>Use modern progressive technologies of Github to earn code references around the world</h5>
+               <form className="hero-subscribe-from" onSubmit={handleSubmit}>
+                 <input 
+                  type="text" name="search"
+                  id="search"
+                  placeholder="Enter repository name"
+                  value={username}
+                  onChange={e => setUsernameState(e.target.value)}
+                  />
+                 <button className="site-btn sb-gradients" disabled={setDisabled}>{isLoading ? 'Searching...' : 'Search'}</button>
+               </form>
+             </div>
+           </div>
+         </div>
         {userNotFound && (
-          <Col xs={12} className="text-center">
+          <div className="col text-center">
             <h3 className="my-5">User Not Found</h3>
-          </Col>
+          </div>
         )}
         {repositories.length > 0 && (
-          <Col xs={12} className="text-center">
-            <h3 className="mt-5">Results</h3>
-            <Button color="danger" onClick={handleClear} className="my-3">Clear Results</Button>
+          <div className="col text-center">
+            <button onClick={handleClear} className="btn btn-link text-danger">Clear Results</button>
             <ul className="list-group my-3">
               {repositories.map((repo: Repository) => (
                 <li key={repo.id} className="list-group-item">
@@ -99,10 +94,10 @@ const Repositories = ({repos}: Props) => {
                 </li>
               ))}
             </ul>
-          </Col>
+          </div>
         )}
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 };
 
